@@ -142,8 +142,8 @@ function GenerateRules() {
                 # "tls://dns.alidns.com:853"
                 # "tls://dns.ipv6dns.com:853"
                 # "tls://dot.360.cn:853"
-                "https://1.12.12.12:443/dns-query"
-                "https://223.5.5.5:443/dns-query"
+                "tls://1.12.12.12"
+                "https://223.5.5.5/dns-query"
                 # "https://sm2.doh.pub:443/dns-query"
             )
             foreign_dns=(
@@ -155,8 +155,9 @@ function GenerateRules() {
                 # "tls://dns.opendns.com:853"
                 # "tls://dns11.quad9.net:853"
                 # "tls://dns64.dns.google:853"
-				"tls://p0.freedns.controld.com:853"
-				"https://146.112.41.4/dns-query"
+				# "tls://p0.freedns.controld.com:853"
+				"https://doh.090227.xyz/V-query"
+				"https://doh.090227.xyz/Ali-query"
             )
             function GenerateRulesHeader() {
                 echo -n "[/" >> "${file_path}"
@@ -219,8 +220,8 @@ function GenerateRules() {
                 # "tls://dns.alidns.com:853"
                 # "tls://dns.ipv6dns.com:853"
                 # "tls://dot.360.cn:853"
-                "https://1.12.12.12:443/dns-query"
-                "https://223.5.5.5:443/dns-query"
+                "tls://1.12.12.12"
+                "https://223.5.5.5/dns-query"
                 # "https://sm2.doh.pub:443/dns-query"
             )
             foreign_dns=(
@@ -232,9 +233,9 @@ function GenerateRules() {
                 # "tls://dns.opendns.com:853"
                 # "tls://dns11.quad9.net:853"
                 # "tls://dns64.dns.google:853"
-				"tls://p0.freedns.controld.com:853"
-				"https://146.112.41.4/dns-query"
-				# "https://doh.18bit.cn/dns-query"
+				# "tls://p0.freedns.controld.com:853"
+				"https://doh.090227.xyz/V-query"
+				"https://doh.090227.xyz/Ali-query"
             )
             function GenerateRulesHeader() {
                 echo -n "[/" >> "${file_path}"
@@ -289,7 +290,7 @@ function GenerateRules() {
                 "180.184.1.1 port 53"
             )
             foreign_dns=(
-                "45.90.30.0 port 53"
+                "8.8.4.4 port 53"
             )
             if [ "${generate_mode}" == "full" ]; then
                 if [ "${generate_file}" == "black" ]; then
@@ -334,7 +335,7 @@ function GenerateRules() {
                 "223.5.5.5#53"
             )
             foreign_dns=(
-                "8.8.8.8#53"
+                "8.8.4.4#53"
             )
             if [ "${generate_mode}" == "full" ]; then
                 if [ "${generate_file}" == "black" ]; then
@@ -503,15 +504,15 @@ function OutputData() {
     ##     software_name="dnsmasq" && generate_file="white" && generate_mode="full" && GenerateRules
     ##     software_name="dnsmasq" && generate_file="white" && generate_mode="lite" && GenerateRules
     ## Domain
-    software_name="domain" && generate_file="black" && generate_mode="full" && GenerateRules
-    software_name="domain" && generate_file="black" && generate_mode="lite" && GenerateRules
-    software_name="domain" && generate_file="white" && generate_mode="full" && GenerateRules
-    software_name="domain" && generate_file="white" && generate_mode="lite" && GenerateRules
+    ##     software_name="domain" && generate_file="black" && generate_mode="full" && GenerateRules
+    ##     software_name="domain" && generate_file="black" && generate_mode="lite" && GenerateRules
+    ##     software_name="domain" && generate_file="white" && generate_mode="full" && GenerateRules
+    ##     software_name="domain" && generate_file="white" && generate_mode="lite" && GenerateRules
     ## SmartDNS
-    software_name="smartdns" && generate_file="black" && generate_mode="full" && foreign_group="foreign" && GenerateRules
-    software_name="smartdns" && generate_file="black" && generate_mode="lite" && foreign_group="foreign" && GenerateRules
-    software_name="smartdns" && generate_file="white" && generate_mode="full" && domestic_group="domestic" && GenerateRules
-    software_name="smartdns" && generate_file="white" && generate_mode="lite" && domestic_group="domestic" && GenerateRules
+    ##     software_name="smartdns" && generate_file="black" && generate_mode="full" && foreign_group="foreign" && GenerateRules
+    ##     software_name="smartdns" && generate_file="black" && generate_mode="lite" && foreign_group="foreign" && GenerateRules
+    ##     software_name="smartdns" && generate_file="white" && generate_mode="full" && domestic_group="domestic" && GenerateRules
+    ##     software_name="smartdns" && generate_file="white" && generate_mode="lite" && domestic_group="domestic" && GenerateRules
     ## Unbound
     ##     software_name="unbound" && generate_file="black" && generate_mode="full" && dns_mode="foreign" && GenerateRules
     ##     software_name="unbound" && generate_file="black" && generate_mode="lite" && dns_mode="foreign" && GenerateRules
